@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "lib": ["es5", "es2015", "es2016"],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "dist",
+    "types": ["jest", "node"],
+    "target": "es3",
+    "strict": true
+  }
+}

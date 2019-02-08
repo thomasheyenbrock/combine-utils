@@ -1,0 +1,38 @@
+{
+  "name": "combine-utils",
+  "version": "0.1.0",
+  "description": "Utility functions to help with combining items.",
+  "main": "dist/index.js",
+  "author": "Thomas Heyenbrock <thomas.heyenbrock@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "benchmark": "npm run build && node dist/scripts/benchmark.js",
+    "build": "rimraf dist && tsc",
+    "lint": "tslint -p .",
+    "prettify": "prettier --write '**/*.{js,ts}'",
+    "release": "semantic-release",
+    "test": "jest --coverage",
+    "test:coverage": "npm run test && opn coverage/lcov-report/index.html",
+    "test:watch": "jest --watch",
+    "ts": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.2",
+    "@babel/preset-env": "7.3.1",
+    "@babel/preset-typescript": "7.1.0",
+    "@types/jest": "24.0.0",
+    "@types/node": "10.12.23",
+    "commitlint": "7.5.0",
+    "husky": "1.3.1",
+    "jest": "24.0.0",
+    "lint-staged": "8.1.3",
+    "opn-cli": "4.0.0",
+    "prettier": "1.16.4",
+    "rimraf": "2.6.3",
+    "semantic-release": "15.13.3",
+    "tslint": "5.12.1",
+    "tslint-config-airbnb": "5.11.1",
+    "tslint-config-prettier": "1.18.0",
+    "typescript": "3.3.3"
+  }
+}
