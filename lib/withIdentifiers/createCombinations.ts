@@ -1,11 +1,11 @@
 import { create, GetIdentifiersFromItem, Options } from "./create";
 
 export function createCombinations<Item>(
-  items: Item[],
+  collection: Item[],
   getIdentifiersFromItem: GetIdentifiersFromItem<Item>,
   options?: Options
 ) {
-  return create(items, getIdentifiersFromItem, {
+  return create(collection, getIdentifiersFromItem, {
     ...options,
     includeIncompleteCombinations: true
   });
