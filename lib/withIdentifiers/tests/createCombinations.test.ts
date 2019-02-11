@@ -82,7 +82,7 @@ it("should store the number of function calls", () => {
   createCombinationsWithIdentifiers(collection, getIdentifiers, {
     storeNumberOfCallsIn: numberOfCalls
   });
-  expect(numberOfCalls).toEqual({ calls: 239 });
+  expect(numberOfCalls).toEqual({ calls: 71 });
 });
 describe("when there are no items", () => {
   it("should return an empty array as only combination", () => {

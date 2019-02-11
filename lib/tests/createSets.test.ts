@@ -26,7 +26,7 @@ it("should store the number of function calls", () => {
   createSets(collection, {
     storeNumberOfCallsIn: numberOfCalls
   });
-  expect(numberOfCalls).toEqual({ calls: 216 });
+  expect(numberOfCalls).toEqual({ calls: 118 });
 });
 describe("when there are no items in the collection", () => {
   it("should return an empty array", () => {
