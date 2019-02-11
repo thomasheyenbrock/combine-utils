@@ -22,6 +22,13 @@ const expectedCombinations = [
 it("should return a list of all possible combinations", () => {
   expect(createCombinations(collection)).toEqual(expectedCombinations);
 });
+it("should store the number of function calls", () => {
+  const numberOfCalls = { calls: 0 };
+  createCombinations(collection, {
+    storeNumberOfCallsIn: numberOfCalls
+  });
+  expect(numberOfCalls).toEqual({ calls: 30 });
+});
 describe("when the collection is empty", () => {
   it("should return an empty array as only combination", () => {
     expect(createCombinations([])).toEqual([[]]);
