@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "description": "Utility functions to help with combining items.",
   "main": "dist/index.js",
+  "repository": "https://github.com/thomasheyenbrock/combine-utils.git",
+  "keywords": ["combine", "utils", "combinatorics", "collections", "items", "combinations", "sets"],
   "author": "Thomas Heyenbrock <thomas.heyenbrock@gmail.com>",
   "license": "MIT",
   "scripts": {
