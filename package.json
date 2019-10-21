@@ -31,7 +31,7 @@
     "opn-cli": "5.0.0",
     "prettier": "1.18.2",
     "rimraf": "3.0.0",
-    "semantic-release": "15.13.24",
+    "semantic-release": "15.13.27",
     "tslint": "5.20.0",
     "tslint-config-airbnb": "5.11.2",
     "tslint-config-prettier": "1.18.0",
