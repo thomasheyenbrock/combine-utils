@@ -23,7 +23,7 @@
     "@babel/preset-env": "7.8.3",
     "@babel/preset-typescript": "7.8.3",
     "@types/jest": "24.9.0",
-    "@types/node": "13.1.7",
+    "@types/node": "13.1.8",
     "commitlint": "8.3.5",
     "husky": "4.0.10",
     "jest": "24.9.0",
