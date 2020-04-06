@@ -37,7 +37,7 @@
     "jest": "25.2.7",
     "lint-staged": "10.1.2",
     "opn-cli": "5.0.0",
-    "prettier": "2.0.2",
+    "prettier": "2.0.3",
     "rimraf": "3.0.2",
     "semantic-release": "17.0.4",
     "tslint": "6.1.1",
