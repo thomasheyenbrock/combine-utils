@@ -34,7 +34,7 @@
     "@types/node": "13.13.4",
     "commitlint": "8.3.5",
     "husky": "4.2.5",
-    "jest": "25.5.0",
+    "jest": "25.5.2",
     "lint-staged": "10.2.0",
     "opn-cli": "5.0.0",
     "prettier": "2.0.5",
