@@ -13,7 +13,7 @@ aliases:
 
   - &install
     name: Installing
-    command: yarn
+    command: yarn --frozen-lockfile
 
   - &npm_auth_token
     name: Configure Circle to add the authToken to ~/.npmrc
