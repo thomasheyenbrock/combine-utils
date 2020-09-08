@@ -33,7 +33,7 @@
     "@types/jest": "26.0.13",
     "@types/node": "14.6.4",
     "commitlint": "9.1.2",
-    "husky": "4.2.5",
+    "husky": "4.3.0",
     "jest": "26.4.2",
     "lint-staged": "10.3.0",
     "opn-cli": "5.0.0",
