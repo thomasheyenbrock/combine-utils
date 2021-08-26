@@ -34,7 +34,7 @@
     "@babel/preset-env": "7.15.0",
     "@babel/preset-typescript": "7.15.0",
     "@types/jest": "26.0.24",
-    "@types/node": "16.4.13",
+    "@types/node": "16.7.2",
     "commitlint": "12.1.4",
     "husky": "6.0.0",
     "jest": "27.0.6",
