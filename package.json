@@ -37,7 +37,7 @@
     "@types/node": "16.7.10",
     "commitlint": "12.1.4",
     "husky": "6.0.0",
-    "jest": "27.0.6",
+    "jest": "27.2.1",
     "lint-staged": "11.1.1",
     "opn-cli": "5.0.0",
     "pinst": "2.1.6",
