@@ -1,5 +1,5 @@
 import { createCombinations } from "./createCombinations";
-import { Options } from "./withIdentifiers/create";
+import { Options } from "./create";
 import { createCompleteCombinations } from "./withIdentifiers/createCompleteCombinations";
 
 export function createSets<Item>(collection: Item[], options?: Options) {

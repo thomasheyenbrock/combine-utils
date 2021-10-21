@@ -7,7 +7,9 @@ export {
   createCompleteCombinations as createCompleteCombinationsWithIdentifiers
 } from "./withIdentifiers/createCompleteCombinations";
 export {
-  GetIdentifiersFromItem,
-  Identifier,
-  Options
-} from "./withIdentifiers/create";
+  createCombinations as createCombinationsWithWeights
+} from "./withWeights/createCombinations";
+export {
+  createCompleteCombinations as createCompleteCombinationsWithWeights
+} from "./withWeights/createCompleteCombinations";
+export { GetIdentifiersFromItem, Identifier, Options } from "./create";

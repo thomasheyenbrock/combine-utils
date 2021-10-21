@@ -44,3 +44,44 @@ Array.from({ length: 11 }).forEach((_, index) => {
 });
 
 console.table(data);
+
+console.log("\n---\n");
+
+const collection = [
+  ...Array.from({ length: 100 }).map((_, index) => ({
+    identifiers: [1],
+    weight: Math.random() * 100,
+    id: `identifier-1-index-${index}`
+  })),
+  ...Array.from({ length: 70 }).map((_, index) => ({
+    identifiers: [2],
+    weight: Math.random() * 100,
+    id: `identifier-2-index-${index}`
+  })),
+  ...Array.from({ length: 50 }).map((_, index) => ({
+    identifiers: [3],
+    weight: Math.random() * 100,
+    id: `identifier-3-index-${index}`
+  })),
+  ...Array.from({ length: 30 }).map((_, index) => ({
+    identifiers: [4],
+    weight: Math.random() * 100,
+    id: `identifier-4-index-${index}`
+  }))
+];
+
+const startTime = Date.now();
+const combinations = createCompleteCombinationsWithIdentifiers(
+  collection,
+  item => item.identifiers,
+  { storeNumberOfCallsIn: numberOfCalls }
+);
+const endTime = Date.now();
+
+console.log("100 items with identifier 1");
+console.log("70 items with identifier 2");
+console.log("50 items with identifier 3");
+console.log("30 items with identifier 4");
+console.log("  Number of combinations found:", combinations.length);
+console.log("  Number of recursive function calls:", numberOfCalls.calls);
+console.log("  Time spent:", endTime - startTime);

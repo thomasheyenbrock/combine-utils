@@ -5,13 +5,19 @@ export type Options = {
 };
 export type Identifier = number | string;
 export type GetIdentifiersFromItem<Item> = (item: Item) => Identifier[];
+export type GetWeightForCollection<Item> = (collection: Item[]) => number;
+
+type AdditionalOptions<Item> = {
+  includeIncompleteCombinations: boolean;
+  orderByWeight?: GetWeightForCollection<Item>;
+};
 
 function internalCreate<Item>(
   collection: Item[],
   allIdentifiers: Identifier[],
   getAllIdentifiersForCollection: (collection: Item[]) => Identifier[],
   currentCombination: Item[],
-  options: Options & { includeIncompleteCombinations: boolean }
+  options: Options & AdditionalOptions<Item>
 ): Item[][] {
   const {
     includeIncompleteCombinations,
@@ -96,7 +102,7 @@ function internalCreate<Item>(
 export function create<Item>(
   collection: Item[],
   getIdentifiersFromItem: GetIdentifiersFromItem<Item>,
-  options: Options & { includeIncompleteCombinations: boolean }
+  options: Options & AdditionalOptions<Item>
 ) {
   const createCombinationOptions = { ...options };
   const { storeNumberOfCallsIn } = createCombinationOptions;
@@ -111,6 +117,14 @@ export function create<Item>(
     return itemList.reduce(
       (acc, item) => {
         getIdentifiersFromItem(item).forEach(identifier => {
+          if (
+            typeof identifier !== "number" &&
+            typeof identifier !== "string"
+          ) {
+            throw new Error(
+              `Identifiers have to be either a number or a string. Identifier of type "${typeof identifier}" was found.`
+            );
+          }
           if (acc.indexOf(identifier) < 0) {
             acc.push(identifier);
           }

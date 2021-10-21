@@ -1,4 +1,4 @@
-import { create, GetIdentifiersFromItem, Options } from "./create";
+import { create, GetIdentifiersFromItem, Options } from "../create";
 
 export function createCompleteCombinations<Item>(
   collection: Item[],
