@@ -35,7 +35,7 @@
     "@babel/preset-typescript": "7.16.0",
     "@types/jest": "27.0.2",
     "@types/node": "16.11.7",
-    "commitlint": "12.1.4",
+    "commitlint": "14.1.0",
     "husky": "6.0.0",
     "jest": "27.3.1",
     "lint-staged": "11.1.2",
