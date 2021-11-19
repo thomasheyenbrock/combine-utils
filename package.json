@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Utility functions to help with combining items.",
   "main": "dist/lib/index.js",
+  "engines": {
+    "node": ">=12.20.0"
+  },
   "repository": "https://github.com/thomasheyenbrock/combine-utils.git",
   "keywords": [
     "combine",
