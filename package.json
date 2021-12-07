@@ -44,7 +44,7 @@
     "lint-staged": "12.1.2",
     "opn-cli": "5.0.0",
     "pinst": "2.1.6",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "rimraf": "3.0.2",
     "semantic-release": "17.4.4",
     "tslint": "6.1.3",
