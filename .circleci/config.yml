@@ -20,15 +20,15 @@ aliases:
     command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 
 # Defaults for node environment
-node12Environment: &node12Environment
+node14Environment: &node14Environment
   docker:
-    - image: circleci/node:12
+    - image: circleci/node:14
   working_directory: *working_directory
 
 version: 2
 jobs:
   install:
-    <<: *node12Environment
+    <<: *node14Environment
     steps:
       - checkout
       - restore-cache: *restore_yarn_cache
@@ -36,7 +36,7 @@ jobs:
       - run: *install
       - save-cache: *save_yarn_cache
   lint:
-    <<: *node12Environment
+    <<: *node14Environment
     steps:
       - checkout
       - restore-cache: *restore_yarn_cache
@@ -44,7 +44,7 @@ jobs:
           name: "Linting"
           command: "yarn lint"
   test:
-    <<: *node12Environment
+    <<: *node14Environment
     steps:
       - checkout
       - restore-cache: *restore_yarn_cache
@@ -52,7 +52,7 @@ jobs:
           name: "Testing"
           command: "yarn test"
   typescript:
-    <<: *node12Environment
+    <<: *node14Environment
     steps:
       - checkout
       - restore-cache: *restore_yarn_cache
@@ -60,7 +60,7 @@ jobs:
           name: "Type checking"
           command: "yarn ts"
   build:
-    <<: *node12Environment
+    <<: *node14Environment
     steps:
       - checkout
       - restore-cache: *restore_yarn_cache
@@ -72,7 +72,7 @@ jobs:
           paths:
             - dist/*
   publish:
-    <<: *node12Environment
+    <<: *node14Environment
     steps:
       - checkout
       - restore-cache: *restore_yarn_cache
