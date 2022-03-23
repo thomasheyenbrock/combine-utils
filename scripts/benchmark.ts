@@ -1,13 +1,13 @@
 import {
   createCompleteCombinationsWithIdentifiers,
-  createCombinations
+  createCombinations,
 } from "../lib";
 
 const getCollectionWithNumberOfIdentifiers = (length: number) =>
   createCombinations(Array.from({ length }).map((_, index) => index)).map(
     (identifiers, index) => ({
       identifiers,
-      itemId: index
+      itemId: index,
     })
   );
 
@@ -28,9 +28,9 @@ Array.from({ length: 11 }).forEach((_, index) => {
   const startTime = Date.now();
   const combinatons = createCompleteCombinationsWithIdentifiers(
     collection,
-    item => item.identifiers,
+    (item) => item.identifiers,
     {
-      storeNumberOfCallsIn: numberOfCalls
+      storeNumberOfCallsIn: numberOfCalls,
     }
   );
   const endTime = Date.now();
@@ -39,7 +39,7 @@ Array.from({ length: 11 }).forEach((_, index) => {
     "Length of collection": collection.length,
     "Number of combinations found": combinatons.length,
     "Number of recursive function calls": numberOfCalls.calls,
-    "Time spent": endTime - startTime
+    "Time spent": endTime - startTime,
   });
 });
 

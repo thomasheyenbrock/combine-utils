@@ -17,7 +17,7 @@ const expectedCombinations = [
   [2, 4],
   [3],
   [3, 4],
-  [4]
+  [4],
 ];
 it("should return a list of all possible combinations", () => {
   expect(createCombinations(collection)).toEqual(expectedCombinations);
@@ -25,7 +25,7 @@ it("should return a list of all possible combinations", () => {
 it("should store the number of function calls", () => {
   const numberOfCalls = { calls: 0 };
   createCombinations(collection, {
-    storeNumberOfCallsIn: numberOfCalls
+    storeNumberOfCallsIn: numberOfCalls,
   });
   expect(numberOfCalls).toEqual({ calls: 30 });
 });
@@ -43,10 +43,10 @@ describe("with minimum length", () => {
   it("should only return combinations that are bigger than the minimum length", () => {
     expect(
       createCombinations(collection, {
-        minimumLength: 2
+        minimumLength: 2,
       })
     ).toEqual(
-      expectedCombinations.filter(combination => combination.length >= 2)
+      expectedCombinations.filter((combination) => combination.length >= 2)
     );
   });
 });
@@ -54,10 +54,10 @@ describe("with maximum length", () => {
   it("should only return combinations that are smaller than the maximum length", () => {
     expect(
       createCombinations(collection, {
-        maximumLength: 2
+        maximumLength: 2,
       })
     ).toEqual(
-      expectedCombinations.filter(combination => combination.length <= 2)
+      expectedCombinations.filter((combination) => combination.length <= 2)
     );
   });
 });
@@ -66,10 +66,10 @@ describe("with minimum length and maximum length", () => {
     expect(
       createCombinations(collection, {
         minimumLength: 2,
-        maximumLength: 2
+        maximumLength: 2,
       })
     ).toEqual(
-      expectedCombinations.filter(combination => combination.length === 2)
+      expectedCombinations.filter((combination) => combination.length === 2)
     );
   });
 });

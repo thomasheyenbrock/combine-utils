@@ -7,6 +7,6 @@ export function createCombinations<Item>(
 ) {
   return create(collection, getIdentifiersFromItem, {
     ...options,
-    includeIncompleteCombinations: true
+    includeIncompleteCombinations: true,
   });
 }

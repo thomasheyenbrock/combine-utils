@@ -11,7 +11,7 @@ export function createCombinations<Item>(
   };
   const collectionWithIdentifiers = collection.map((item, index) => ({
     value: item,
-    identifers: [index]
+    identifers: [index],
   }));
   const getIdentifiersFromItem = (item: ItemObject) => item.identifers;
   const combinations = createAllCombinationsWithIdenfifiers(
@@ -19,5 +19,7 @@ export function createCombinations<Item>(
     getIdentifiersFromItem,
     options
   );
-  return combinations.map(combination => combination.map(item => item.value));
+  return combinations.map((combination) =>
+    combination.map((item) => item.value)
+  );
 }

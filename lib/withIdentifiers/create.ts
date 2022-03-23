@@ -17,7 +17,7 @@ function internalCreate<Item>(
     includeIncompleteCombinations,
     minimumLength,
     maximumLength,
-    storeNumberOfCallsIn
+    storeNumberOfCallsIn,
   } = options;
   if (storeNumberOfCallsIn) {
     storeNumberOfCallsIn.calls += 1;
@@ -34,9 +34,9 @@ function internalCreate<Item>(
 
   // Step 2: Calculate the possible combinations from all the rest items that don't contain any
   // identifiers that we already have in our current combination.
-  const restItemsWithoutCurrentCombination = restItems.filter(item =>
+  const restItemsWithoutCurrentCombination = restItems.filter((item) =>
     getAllIdentifiersForCollection([item]).every(
-      idenfitier =>
+      (idenfitier) =>
         !getAllIdentifiersForCollection(currentCombination).includes(idenfitier)
     )
   );
@@ -67,13 +67,13 @@ function internalCreate<Item>(
   }
 
   // Step 6: Filter all combinations from the restItems that contain the identifiers from the first item.
-  const restItemsWithoutCurrentCombinationAndFirstItem = restItemsWithoutCurrentCombination.filter(
-    item =>
+  const restItemsWithoutCurrentCombinationAndFirstItem =
+    restItemsWithoutCurrentCombination.filter((item) =>
       getAllIdentifiersForCollection([item]).every(
-        identifier =>
+        (identifier) =>
           !getAllIdentifiersForCollection([firstItem]).includes(identifier)
       )
-  );
+    );
 
   // Step 7: Continue the recursion with the new combination. Only try those items that haven't been looked at yet.
   // We can then return the result of this together with the result from step 2.
@@ -89,7 +89,7 @@ function internalCreate<Item>(
       newCombination,
       options
     ),
-    ...restCombinations
+    ...restCombinations,
   ];
 }
 
@@ -108,17 +108,14 @@ export function create<Item>(
     storeNumberOfCallsIn.calls = 0;
   }
   function getAllIdentifiersForCollection(itemList: Item[]) {
-    return itemList.reduce(
-      (acc, item) => {
-        getIdentifiersFromItem(item).forEach(identifier => {
-          if (acc.indexOf(identifier) < 0) {
-            acc.push(identifier);
-          }
-        });
-        return acc;
-      },
-      [] as Identifier[]
-    );
+    return itemList.reduce((acc, item) => {
+      getIdentifiersFromItem(item).forEach((identifier) => {
+        if (acc.indexOf(identifier) < 0) {
+          acc.push(identifier);
+        }
+      });
+      return acc;
+    }, [] as Identifier[]);
   }
   const emptyCollection =
     options.includeIncompleteCombinations &&
@@ -133,6 +130,6 @@ export function create<Item>(
       getAllIdentifiersForCollection,
       [],
       options
-    )
+    ),
   ];
 }
