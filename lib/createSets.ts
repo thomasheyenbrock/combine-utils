@@ -5,20 +5,20 @@ import { createCompleteCombinations } from "./withIdentifiers/createCompleteComb
 export function createSets<Item>(collection: Item[], options?: Options) {
   const collectionWithIdentifiers = collection.map((item, index) => ({
     item,
-    index
+    index,
   }));
   const numberOfCalls = { calls: 0 };
   const allCombinations = createCombinations(collectionWithIdentifiers, {
     minimumLength: 1,
-    storeNumberOfCallsIn: numberOfCalls
+    storeNumberOfCallsIn: numberOfCalls,
   });
   const sets = createCompleteCombinations<{ item: Item; index: number }[]>(
     allCombinations,
-    item => item.map(i => i.index),
+    (item) => item.map((i) => i.index),
     options
   );
   if (options && options.storeNumberOfCallsIn) {
     options.storeNumberOfCallsIn.calls += numberOfCalls.calls;
   }
-  return sets.map(set => set.map(coll => coll.map(({ item }) => item)));
+  return sets.map((set) => set.map((coll) => coll.map(({ item }) => item)));
 }

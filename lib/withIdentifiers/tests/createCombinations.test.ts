@@ -20,7 +20,7 @@ const collection = [
   { itemId: 10, identifiers: [2, 3] },
   { itemId: 11, identifiers: [2, 3] },
   { itemId: 12, identifiers: [1, 2, 3] },
-  { itemId: 13, identifiers: [1, 2, 3] }
+  { itemId: 13, identifiers: [1, 2, 3] },
 ];
 const expectedCombinations = [
   [],
@@ -69,7 +69,7 @@ const expectedCombinations = [
   [collection[10]],
   [collection[11]],
   [collection[12]],
-  [collection[13]]
+  [collection[13]],
 ];
 
 it("should return all possible combinatons", () => {
@@ -80,7 +80,7 @@ it("should return all possible combinatons", () => {
 it("should store the number of function calls", () => {
   const numberOfCalls = { calls: 0 };
   createCombinationsWithIdentifiers(collection, getIdentifiers, {
-    storeNumberOfCallsIn: numberOfCalls
+    storeNumberOfCallsIn: numberOfCalls,
   });
   expect(numberOfCalls).toEqual({ calls: 71 });
 });
@@ -96,11 +96,11 @@ describe("when there is only one identifier", () => {
       { itemId: 1, identifiers: [1] },
       { itemId: 2, identifiers: [1] },
       { itemId: 3, identifiers: [1] },
-      { itemId: 4, identifiers: [1] }
+      { itemId: 4, identifiers: [1] },
     ];
     expect(
       createCombinationsWithIdentifiers(booringCollection, getIdentifiers)
-    ).toEqual([[], ...booringCollection.map(item => [item])]);
+    ).toEqual([[], ...booringCollection.map((item) => [item])]);
   });
 });
 describe("when there are no possible complete combinations", () => {
@@ -108,21 +108,21 @@ describe("when there are no possible complete combinations", () => {
     const impossibleCollection = [
       { itemId: 0, identifiers: [1, 2] },
       { itemId: 1, identifiers: [1, 3] },
-      { itemId: 2, identifiers: [2, 3] }
+      { itemId: 2, identifiers: [2, 3] },
     ];
     expect(
       createCombinationsWithIdentifiers(impossibleCollection, getIdentifiers)
-    ).toEqual([[], ...impossibleCollection.map(item => [item])]);
+    ).toEqual([[], ...impossibleCollection.map((item) => [item])]);
   });
 });
 describe("with minimum length", () => {
   it("should only return combinations that are bigger than the minimum length", () => {
     expect(
       createCombinationsWithIdentifiers(collection, getIdentifiers, {
-        minimumLength: 2
+        minimumLength: 2,
       })
     ).toEqual(
-      expectedCombinations.filter(combination => combination.length >= 2)
+      expectedCombinations.filter((combination) => combination.length >= 2)
     );
   });
 });
@@ -130,10 +130,10 @@ describe("with maximum length", () => {
   it("should only return combinations that are smaller than the maximum length", () => {
     expect(
       createCombinationsWithIdentifiers(collection, getIdentifiers, {
-        maximumLength: 2
+        maximumLength: 2,
       })
     ).toEqual(
-      expectedCombinations.filter(combination => combination.length <= 2)
+      expectedCombinations.filter((combination) => combination.length <= 2)
     );
   });
 });
@@ -142,10 +142,10 @@ describe("with minimum length and maximum length", () => {
     expect(
       createCombinationsWithIdentifiers(collection, getIdentifiers, {
         minimumLength: 2,
-        maximumLength: 2
+        maximumLength: 2,
       })
     ).toEqual(
-      expectedCombinations.filter(combination => combination.length === 2)
+      expectedCombinations.filter((combination) => combination.length === 2)
     );
   });
 });
