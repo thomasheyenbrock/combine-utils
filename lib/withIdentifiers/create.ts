@@ -11,7 +11,7 @@ function internalCreate<Item>(
   allIdentifiers: Identifier[],
   getAllIdentifiersForCollection: (collection: Item[]) => Identifier[],
   currentCombination: Item[],
-  options: Options & { includeIncompleteCombinations: boolean }
+  options: Options & { includeIncompleteCombinations: boolean },
 ): Item[][] {
   const {
     includeIncompleteCombinations,
@@ -37,15 +37,17 @@ function internalCreate<Item>(
   const restItemsWithoutCurrentCombination = restItems.filter((item) =>
     getAllIdentifiersForCollection([item]).every(
       (idenfitier) =>
-        !getAllIdentifiersForCollection(currentCombination).includes(idenfitier)
-    )
+        !getAllIdentifiersForCollection(currentCombination).includes(
+          idenfitier,
+        ),
+    ),
   );
   const restCombinations = internalCreate(
     restItemsWithoutCurrentCombination,
     allIdentifiers,
     getAllIdentifiersForCollection,
     currentCombination,
-    options
+    options,
   );
 
   // Step 3: Create a new combination form the current one and add the first item.
@@ -71,8 +73,8 @@ function internalCreate<Item>(
     restItemsWithoutCurrentCombination.filter((item) =>
       getAllIdentifiersForCollection([item]).every(
         (identifier) =>
-          !getAllIdentifiersForCollection([firstItem]).includes(identifier)
-      )
+          !getAllIdentifiersForCollection([firstItem]).includes(identifier),
+      ),
     );
 
   // Step 7: Continue the recursion with the new combination. Only try those items that haven't been looked at yet.
@@ -87,7 +89,7 @@ function internalCreate<Item>(
       allIdentifiers,
       getAllIdentifiersForCollection,
       newCombination,
-      options
+      options,
     ),
     ...restCombinations,
   ];
@@ -96,7 +98,7 @@ function internalCreate<Item>(
 export function create<Item>(
   collection: Item[],
   getIdentifiersFromItem: GetIdentifiersFromItem<Item>,
-  options: Options & { includeIncompleteCombinations: boolean }
+  options: Options & { includeIncompleteCombinations: boolean },
 ) {
   const createCombinationOptions = { ...options };
   const { storeNumberOfCallsIn } = createCombinationOptions;
@@ -129,7 +131,7 @@ export function create<Item>(
       getAllIdentifiersForCollection(collection),
       getAllIdentifiersForCollection,
       [],
-      options
+      options,
     ),
   ];
 }

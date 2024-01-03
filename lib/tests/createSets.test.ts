@@ -52,7 +52,7 @@ describe("with minimum length", () => {
     expect(
       createSets(collection, {
         minimumLength: 2,
-      })
+      }),
     ).toEqual(expectedSets.filter((set) => set.length >= 2));
   });
 });
@@ -61,7 +61,7 @@ describe("with maximum length", () => {
     expect(
       createSets(collection, {
         maximumLength: 2,
-      })
+      }),
     ).toEqual(expectedSets.filter((set) => set.length <= 2));
   });
 });
@@ -71,7 +71,7 @@ describe("with minimum length and maximum length", () => {
       createSets(collection, {
         minimumLength: 2,
         maximumLength: 2,
-      })
+      }),
     ).toEqual(expectedSets.filter((set) => set.length === 2));
   });
 });

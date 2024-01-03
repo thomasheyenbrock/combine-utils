@@ -74,7 +74,7 @@ const expectedCombinations = [
 
 it("should return all possible combinatons", () => {
   expect(createCombinationsWithIdentifiers(collection, getIdentifiers)).toEqual(
-    expectedCombinations
+    expectedCombinations,
   );
 });
 it("should store the number of function calls", () => {
@@ -99,7 +99,7 @@ describe("when there is only one identifier", () => {
       { itemId: 4, identifiers: [1] },
     ];
     expect(
-      createCombinationsWithIdentifiers(booringCollection, getIdentifiers)
+      createCombinationsWithIdentifiers(booringCollection, getIdentifiers),
     ).toEqual([[], ...booringCollection.map((item) => [item])]);
   });
 });
@@ -111,7 +111,7 @@ describe("when there are no possible complete combinations", () => {
       { itemId: 2, identifiers: [2, 3] },
     ];
     expect(
-      createCombinationsWithIdentifiers(impossibleCollection, getIdentifiers)
+      createCombinationsWithIdentifiers(impossibleCollection, getIdentifiers),
     ).toEqual([[], ...impossibleCollection.map((item) => [item])]);
   });
 });
@@ -120,9 +120,9 @@ describe("with minimum length", () => {
     expect(
       createCombinationsWithIdentifiers(collection, getIdentifiers, {
         minimumLength: 2,
-      })
+      }),
     ).toEqual(
-      expectedCombinations.filter((combination) => combination.length >= 2)
+      expectedCombinations.filter((combination) => combination.length >= 2),
     );
   });
 });
@@ -131,9 +131,9 @@ describe("with maximum length", () => {
     expect(
       createCombinationsWithIdentifiers(collection, getIdentifiers, {
         maximumLength: 2,
-      })
+      }),
     ).toEqual(
-      expectedCombinations.filter((combination) => combination.length <= 2)
+      expectedCombinations.filter((combination) => combination.length <= 2),
     );
   });
 });
@@ -143,9 +143,9 @@ describe("with minimum length and maximum length", () => {
       createCombinationsWithIdentifiers(collection, getIdentifiers, {
         minimumLength: 2,
         maximumLength: 2,
-      })
+      }),
     ).toEqual(
-      expectedCombinations.filter((combination) => combination.length === 2)
+      expectedCombinations.filter((combination) => combination.length === 2),
     );
   });
 });

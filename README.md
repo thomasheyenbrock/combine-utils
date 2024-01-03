@@ -32,7 +32,7 @@ expect(combinations).toEqual([
   [1, 3],
   [2],
   [2, 3],
-  [3]
+  [3],
 ]);
 ```
 
@@ -63,7 +63,7 @@ expect(sets).toEqual([
   [[1], [2, 3]],
   [[1, 2], [3]],
   [[1, 2, 3]],
-  [[1, 3], [2]]
+  [[1, 3], [2]],
 ]);
 ```
 
@@ -92,17 +92,20 @@ type Identifier = number | string;
 const collection = [
   { itemId: 0, identifiers: [1] },
   { itemId: 1, identifiers: [2] },
-  { itemId: 2, identifiers: [1, 2] }
+  { itemId: 2, identifiers: [1, 2] },
 ];
 const combinations = createCombinationsWithIdentifiers(
   collection,
-  item => item.identifiers
+  (item) => item.identifiers,
 );
 expect(combinations).toEqual([
   [{ itemId: 0, identifiers: [1] }],
-  [{ itemId: 0, identifiers: [1] }, { itemId: 1, identifiers: [2] }],
+  [
+    { itemId: 0, identifiers: [1] },
+    { itemId: 1, identifiers: [2] },
+  ],
   [{ itemId: 1, identifiers: [2] }],
-  [{ itemId: 2, identifiers: [1, 2] }]
+  [{ itemId: 2, identifiers: [1, 2] }],
 ]);
 ```
 
@@ -131,15 +134,18 @@ type Identifier = number | string;
 const collection = [
   { itemId: 0, identifiers: [1] },
   { itemId: 1, identifiers: [2] },
-  { itemId: 2, identifiers: [1, 2] }
+  { itemId: 2, identifiers: [1, 2] },
 ];
 const combinations = createCompleteCombinationsWithIdentifiers(
   collection,
-  item => item.identifiers
+  (item) => item.identifiers,
 );
 expect(combinations).toEqual([
-  [{ itemId: 0, identifiers: [1] }, { itemId: 1, identifiers: [2] }],
-  [{ itemId: 2, identifiers: [1, 2] }]
+  [
+    { itemId: 0, identifiers: [1] },
+    { itemId: 1, identifiers: [2] },
+  ],
+  [{ itemId: 2, identifiers: [1, 2] }],
 ]);
 ```
 

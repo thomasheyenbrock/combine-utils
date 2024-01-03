@@ -8,7 +8,7 @@ const getCollectionWithNumberOfIdentifiers = (length: number) =>
     (identifiers, index) => ({
       identifiers,
       itemId: index,
-    })
+    }),
   );
 
 const numberOfCalls = { calls: 0 };
@@ -31,7 +31,7 @@ Array.from({ length: 11 }).forEach((_, index) => {
     (item) => item.identifiers,
     {
       storeNumberOfCallsIn: numberOfCalls,
-    }
+    },
   );
   const endTime = Date.now();
   data.push({
