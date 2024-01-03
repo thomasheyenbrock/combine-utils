@@ -44,9 +44,9 @@ describe("with minimum length", () => {
     expect(
       createCombinations(collection, {
         minimumLength: 2,
-      })
+      }),
     ).toEqual(
-      expectedCombinations.filter((combination) => combination.length >= 2)
+      expectedCombinations.filter((combination) => combination.length >= 2),
     );
   });
 });
@@ -55,9 +55,9 @@ describe("with maximum length", () => {
     expect(
       createCombinations(collection, {
         maximumLength: 2,
-      })
+      }),
     ).toEqual(
-      expectedCombinations.filter((combination) => combination.length <= 2)
+      expectedCombinations.filter((combination) => combination.length <= 2),
     );
   });
 });
@@ -67,9 +67,9 @@ describe("with minimum length and maximum length", () => {
       createCombinations(collection, {
         minimumLength: 2,
         maximumLength: 2,
-      })
+      }),
     ).toEqual(
-      expectedCombinations.filter((combination) => combination.length === 2)
+      expectedCombinations.filter((combination) => combination.length === 2),
     );
   });
 });

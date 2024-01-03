@@ -3,7 +3,7 @@ import { Options } from "./withIdentifiers/create";
 
 export function createCombinations<Item>(
   collection: Item[],
-  options?: Options
+  options?: Options,
 ) {
   type ItemObject = {
     value: Item;
@@ -17,9 +17,9 @@ export function createCombinations<Item>(
   const combinations = createAllCombinationsWithIdenfifiers(
     collectionWithIdentifiers,
     getIdentifiersFromItem,
-    options
+    options,
   );
   return combinations.map((combination) =>
-    combination.map((item) => item.value)
+    combination.map((item) => item.value),
   );
 }

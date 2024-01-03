@@ -46,7 +46,7 @@ const expectedCombinations = [
 
 it("should return the expected list of combinations", () => {
   expect(
-    createCompleteCombinationsWithIdentifiers(collection, getIdentifiers)
+    createCompleteCombinationsWithIdentifiers(collection, getIdentifiers),
   ).toEqual(expectedCombinations);
 });
 it("should store the number of function calls", () => {
@@ -60,7 +60,7 @@ it("should store the number of function calls", () => {
 describe("when there are no items", () => {
   it("should return an empty array", () => {
     expect(
-      createCompleteCombinationsWithIdentifiers([], getIdentifiers)
+      createCompleteCombinationsWithIdentifiers([], getIdentifiers),
     ).toEqual([]);
   });
 });
@@ -76,8 +76,8 @@ describe("when there is only one identifier", () => {
     expect(
       createCompleteCombinationsWithIdentifiers(
         booringCollection,
-        getIdentifiers
-      )
+        getIdentifiers,
+      ),
     ).toEqual(booringCollection.map((item) => [item]));
   });
 });
@@ -91,8 +91,8 @@ describe("when there are no possible complete combinations", () => {
     expect(
       createCompleteCombinationsWithIdentifiers(
         impossibleCollection,
-        getIdentifiers
-      )
+        getIdentifiers,
+      ),
     ).toEqual([]);
   });
 });
@@ -101,9 +101,9 @@ describe("with minimum length", () => {
     expect(
       createCompleteCombinationsWithIdentifiers(collection, getIdentifiers, {
         minimumLength: 2,
-      })
+      }),
     ).toEqual(
-      expectedCombinations.filter((combination) => combination.length >= 2)
+      expectedCombinations.filter((combination) => combination.length >= 2),
     );
   });
 });
@@ -112,9 +112,9 @@ describe("with maximum length", () => {
     expect(
       createCompleteCombinationsWithIdentifiers(collection, getIdentifiers, {
         maximumLength: 2,
-      })
+      }),
     ).toEqual(
-      expectedCombinations.filter((combination) => combination.length <= 2)
+      expectedCombinations.filter((combination) => combination.length <= 2),
     );
   });
 });
@@ -124,9 +124,9 @@ describe("with minimum length and maximum length", () => {
       createCompleteCombinationsWithIdentifiers(collection, getIdentifiers, {
         minimumLength: 2,
         maximumLength: 2,
-      })
+      }),
     ).toEqual(
-      expectedCombinations.filter((combination) => combination.length === 2)
+      expectedCombinations.filter((combination) => combination.length === 2),
     );
   });
 });

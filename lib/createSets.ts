@@ -15,7 +15,7 @@ export function createSets<Item>(collection: Item[], options?: Options) {
   const sets = createCompleteCombinations<{ item: Item; index: number }[]>(
     allCombinations,
     (item) => item.map((i) => i.index),
-    options
+    options,
   );
   if (options && options.storeNumberOfCallsIn) {
     options.storeNumberOfCallsIn.calls += numberOfCalls.calls;
